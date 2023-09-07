@@ -46,6 +46,7 @@ class AddScorecard(forms.ModelForm):
     fours = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
     fives = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
     sixes = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
+    upper_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
     upper_bonus = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
     three_of_a_kind = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
     four_of_a_kind = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
@@ -55,7 +56,8 @@ class AddScorecard(forms.ModelForm):
     yahtzee = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
     yahtzee_bonus = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
     chance = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
+    lower_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
+    grand_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
 
     class Meta:
         model = YahtzeeScorecard
