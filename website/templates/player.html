@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ player_info.username }}'s Information</h1>
+    <br/>
+        <table class="table table-light table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">ID</th>
+            </tr>
+          </thead>
+        <tbody>
+            <tr>
+                <td>{{ player_info.username }}</td>
+                <td>{{ player_info.first_name }} {{ player_info.last_name }}</td>
+                <td>{{ player_info.email }}</td>
+                <td>{{ player_info.id }}</td>
+            </tr>
+        </tbody>
+        </table>
+
+    <br/>
+    <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+    <a href="{% url 'home' %}" class="btn btn-danger">Delete</a>
+{% endblock %}

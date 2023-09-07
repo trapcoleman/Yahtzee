@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Yahtzee.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yahtzee',
+        'NAME': 'yahtzee1',
         'USER': 'root',
         'PASSWORD': 'data1234',
         'HOST': 'localhost',

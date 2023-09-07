@@ -8,5 +8,5 @@ database = mysql.connector.connect(
 
 # cursor object
 cursorObject = database.cursor()
-cursorObject.execute("")
+cursorObject.execute("CREATE DATABASE yahtzee1")
 
