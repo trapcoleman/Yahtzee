@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <div class="col-md-6 offset-md-3">
         <h1>Add Scorecard</h1>
         <br/>
@@ -7,98 +8,9 @@
         <form method="POST" action="{% url 'add_scorecard' %}">
             {% csrf_token %}
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ form.username.label_tag }}</td>
-                        <td>{{ form.username }}</td>
-                    </tr>
-                    <tr>
-                        <td>Ones</td>
-                        <td>{{ form.ones }}</td>
-                    </tr>
-                    <tr>
-                        <td>Twos</td>
-                        <td>{{ form.twos }}</td>
-                    </tr>
-                    <tr>
-                        <td>Threes</td>
-                        <td>{{ form.threes }}</td>
-                    </tr>
-                    <tr>
-                        <td>Fours</td>
-                        <td>{{ form.fours }}</td>
-                    </tr>
-                    <tr>
-                        <td>Fives</td>
-                        <td>{{ form.fives }}</td>
-                    </tr>
-                    <tr>
-                        <td>Sixes</td>
-                        <td>{{ form.sixes }}</td>
-                    </tr>
-                    <tr>
-                        <td>Upper Total</td>
-                        <td>{{ form.upper_total }}</td>
-                    </tr>
-                    <tr>
-                        <td>Upper Bonus</td>
-                        <td>{{ form.upper_bonus }}</td>
-                    </tr>
-                    <thead>
-                        <tr>
-                            <th>Lower Section</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>3 of a Kind</td>
-                        <td>{{ form.three_of_a_kind }}</td>
-                    </tr>
-                    <tr>
-                        <td>4 of a Kind</td>
-                        <td>{{ form.three_of_a_kind }}</td>
-                    </tr>
-                    <tr>
-                        <td>Full House</td>
-                        <td>{{ form.full_house }}</td>
-                    </tr>
-                    <tr>
-                        <td>SM Straight</td>
-                        <td>{{ form.small_straight }}</td>
-                    </tr>
-                    <tr>
-                        <td>LG Straight</td>
-                        <td>{{ form.large_straight }}</td>
-                    </tr>
-                    <tr>
-                        <td>Yahtzee</td>
-                        <td>{{ form.yahtzee }}</td>
-                    </tr>
-                    <tr>
-                        <td>Chance</td>
-                        <td>{{ form.chance }}</td>
-                    </tr>
-                    <tr>
-                        <td>Yahtzee Bonus</td>
-                        <td>{{ form.yahtzee_bonus }}</td>
-                    </tr>
-                    <tr>
-                        <td>Lower Total</td>
-                        <td>{{ form.lower_total }}</td>
-                    </tr>
-                    <tr>
-                        <td>Grand Total</td>
-                        <td>{{ form.grand_total }}</td>
-                    </tr>
-                </tbody>
+            <table>
+                {{ form.as_table }}
             </table>
-
 
             <br/>
             <button type="submit" class="btn btn-secondary">Add Scorecard</button>

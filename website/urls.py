@@ -8,4 +8,5 @@ urlpatterns = [
     path('register/', views.register_user, name='register'),
     path('player/<int:pk>', views.player_info, name='player'),
     path('add_scorecard/', views.add_scorecard, name='add_scorecard'),
+    path('view_scorecard/', views.view_scorecard, name='view_scorecard'),
 ]

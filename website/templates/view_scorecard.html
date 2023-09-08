@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <h1>Scorecards</h1>
+
+        <table class="table table-light table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Ones</th>
+                <th scope="col">Twos</th>
+                <th scope="col">Threes</th>
+                <th scope="col">Fours</th>
+                <th scope="col">Fives</th>
+                <th scope="col">Sixes</th>
+                <th scope="col">Upper Total</th>
+                <th scope="col">Upper Bonus</th>
+                <th scope="col">3 of a Kind</th>
+                <th scope="col">4 of a Kind</th>
+                <th scope="col">Full House</th>
+                <th scope="col">SM Straight</th>
+                <th scope="col">LG Straight</th>
+                <th scope="col">Yahtzee</th>
+                <th scope="col">Chance</th>
+                <th scope="col">Yahtzee Bonus</th>
+                <th scope="col">Lower Total</th>
+                <th scope="col">Grand Total</th>
+            </tr>
+          </thead>
+        <tbody>
+                {% if scorecard_info %}
+                    {% for scorecard in scorecard_info %}
+                        <tr>
+                            <td><a href="">{{ scorecard.username }}</a></td>
+                            <td>{{ scorecard.ones }}</td>
+                            <td>{{ scorecard.twos }}</td>
+                            <td>{{ scorecard.threes }}</td>
+                            <td>{{ scorecard.fours }}</td>
+                            <td>{{ scorecard.fives }}</td>
+                            <td>{{ scorecard.sixes }}</td>
+                            <td>{{ scorecard.upper_total }}</td>
+                            <td>{{ scorecard.upper_bonus }}</td>
+                            <td>{{ scorecard.three_of_a_kind }}</td>
+                            <td>{{ scorecard.four_of_a_kind }}</td>
+                            <td>{{ scorecard.full_house }}</td>
+                            <td>{{ scorecard.small_straight }}</td>
+                            <td>{{ scorecard.large_straight }}</td>
+                            <td>{{ scorecard.chance }}</td>
+                            <td>{{ scorecard.yahtzee }}</td>
+                            <td>{{ scorecard.yahtzee_bonus }}</td>
+                            <td>{{ scorecard.lower_total }}</td>
+                            <td>{{ scorecard.grand_total }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+        </tbody>
+        </table>
+
+{% endblock %}

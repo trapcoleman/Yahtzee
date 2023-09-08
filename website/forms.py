@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import YahtzeeScorecard
+from .models import YahtzeeScorecard, Player
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="",
@@ -39,25 +39,25 @@ class SignUpForm(UserCreationForm):
 
 # Create add scorecard form
 class AddScorecard(forms.ModelForm):
-    username = forms.ModelChoiceField(queryset=User.objects.all())
-    ones = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    twos = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    threes = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    fours = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    fives = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    sixes = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    upper_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    upper_bonus = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    three_of_a_kind = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    four_of_a_kind = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    full_house = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    small_straight = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    large_straight = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    yahtzee = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    yahtzee_bonus = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    chance = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    lower_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
-    grand_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="")
+    username = forms.ModelChoiceField(queryset=Player.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}), label="Username")
+    ones = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Ones")
+    twos = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Twos")
+    threes = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Threes")
+    fours = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Fours")
+    fives = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Fives")
+    sixes = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Sixes")
+    upper_bonus = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Upper Bonus")
+    upper_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Upper Total")
+    three_of_a_kind = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="3 of a Kind")
+    four_of_a_kind = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="4 of a Kind")
+    full_house = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Full House")
+    small_straight = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Small Straight")
+    large_straight = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Large Straight")
+    yahtzee = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Yahtzee")
+    yahtzee_bonus = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Yahtzee Bonus")
+    chance = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Chance")
+    lower_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Lower Total")
+    grand_total = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control'}), label="Grand Total")
 
     class Meta:
         model = YahtzeeScorecard
