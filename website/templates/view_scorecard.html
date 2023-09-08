@@ -7,6 +7,7 @@
           <thead>
             <tr>
                 <th scope="col">Username</th>
+                <th scope="col">Scorecard ID</th>
                 <th scope="col">Ones</th>
                 <th scope="col">Twos</th>
                 <th scope="col">Threes</th>
@@ -31,7 +32,8 @@
                 {% if scorecard_info %}
                     {% for scorecard in scorecard_info %}
                         <tr>
-                            <td><a href="">{{ scorecard.username }}</a></td>
+                            <td><a href="{% url 'player' scorecard.username.id %}">{{ scorecard.username }}</a></td>
+                            <td><a href="">{{ scorecard.scorecard_id }}</a></td>
                             <td>{{ scorecard.ones }}</td>
                             <td>{{ scorecard.twos }}</td>
                             <td>{{ scorecard.threes }}</td>
