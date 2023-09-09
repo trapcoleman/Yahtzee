@@ -8,11 +8,9 @@
 
         if (queryType === "top10") {
             url = "{% url 'top_10_scorecards' %}";
-        } else if (queryType === "all") {
-            url = "{% url 'view_scorecard' %}";
-        } else {
-            url = "{% url 'view_scorecard' %}";
         }
+        if (queryType === "all") {
+            url = "{% url 'view_scorecard' %}";
 
         window.location.href = url;
     }
@@ -75,8 +73,8 @@
                             <td>{{ scorecard.full_house }}</td>
                             <td>{{ scorecard.small_straight }}</td>
                             <td>{{ scorecard.large_straight }}</td>
-                            <td>{{ scorecard.yahtzee }}</td>
                             <td>{{ scorecard.chance }}</td>
+                            <td>{{ scorecard.yahtzee }}</td>
                             <td>{{ scorecard.yahtzee_bonus }}</td>
                             <td>{{ scorecard.lower_total }}</td>
                             <td>{{ scorecard.grand_total }}</td>

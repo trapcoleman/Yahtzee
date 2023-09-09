@@ -9,5 +9,8 @@ urlpatterns = [
     path('player/<int:pk>', views.player_info, name='player'),
     path('add_scorecard/', views.add_scorecard, name='add_scorecard'),
     path('view_scorecard/', views.view_scorecard, name='view_scorecard'),
-    # path('delete_scorecard/', views.delete_scorecard, name='delete_scorecard'),
+    path('detail_scorecard/<int:pk>', views.detail_scorecard, name='detail_scorecard'),
+    path('delete_scorecard/<int:pk>', views.delete_scorecard, name='delete_scorecard'),
+    path('update_scorecard/<int:pk>', views.update_scorecard, name='update_scorecard'),
+    path('top_10_scorecards/', views.top_10_scorecards, name='top_10_scorecards'),
 ]

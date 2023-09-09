@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ detail_scorecard.username }}'s Information</h1>
+    <br/>
+ <h1>Scorecards</h1>
+
+        <table class="table table-light table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+                <th scope="col">Scorecard ID</th>
+                <th scope="col">Ones</th>
+                <th scope="col">Twos</th>
+                <th scope="col">Threes</th>
+                <th scope="col">Fours</th>
+                <th scope="col">Fives</th>
+                <th scope="col">Sixes</th>
+                <th scope="col">Upper Bonus</th>
+                <th scope="col">Upper Total</th>
+                <th scope="col">3 of a Kind</th>
+                <th scope="col">4 of a Kind</th>
+                <th scope="col">Full House</th>
+                <th scope="col">SM Straight</th>
+                <th scope="col">LG Straight</th>
+                <th scope="col">Yahtzee</th>
+                <th scope="col">Chance</th>
+                <th scope="col">Yahtzee Bonus</th>
+                <th scope="col">Lower Total</th>
+                <th scope="col">Grand Total</th>
+            </tr>
+          </thead>
+        <tbody>
+            <tr>
+                <td>{{ detail_scorecard.scorecard_id }}</td>
+                <td>{{ detail_scorecard.ones }}</td>
+                <td>{{ detail_scorecard.twos }}</td>
+                <td>{{ detail_scorecard.threes }}</td>
+                <td>{{ detail_scorecard.fours }}</td>
+                <td>{{ detail_scorecard.fives }}</td>
+                <td>{{ detail_scorecard.sixes }}</td>
+                <td>{{ detail_scorecard.upper_bonus }}</td>
+                <td>{{ detail_scorecard.upper_total }}</td>
+                <td>{{ detail_scorecard.three_of_a_kind }}</td>
+                <td>{{ detail_scorecard.four_of_a_kind }}</td>
+                <td>{{ detail_scorecard.full_house }}</td>
+                <td>{{ detail_scorecard.small_straight }}</td>
+                <td>{{ detail_scorecard.large_straight }}</td>
+                <td>{{ detail_scorecard.chance }}</td>
+                <td>{{ detail_scorecard.yahtzee }}</td>
+                <td>{{ detail_scorecard.yahtzee_bonus }}</td>
+                <td>{{ detail_scorecard.lower_total }}</td>
+                <td>{{ detail_scorecard.grand_total }}</td>
+            </tr>
+        </tbody>
+        </table>
+
+    <br/>
+    <a href="{% url 'view_scorecard' %}" class="btn btn-primary">Back</a>
+    <a href="{% url 'delete_scorecard' detail_scorecard.scorecard_id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'update_scorecard' detail_scorecard.scorecard_id %}" class="btn btn-primary">Update Scorecard</a>
+{% endblock %}
