@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <br>
+    <br>
+
+        <table class="table table-light table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Average Grand Total</th>
+            </tr>
+          </thead>
+        <tbody>
+                {% if scorecard_info %}
+                    {% for scorecard in scorecard_info %}
+                        <tr>
+                            <td><a>{{ scorecard.username__username }}</a></td>
+                            <td>{{ scorecard.average_grand_total }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+        </tbody>
+        </table>
+
+{% endblock %}

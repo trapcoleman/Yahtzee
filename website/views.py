@@ -1,3 +1,4 @@
+from django.db.models import Avg, Func
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -144,15 +145,31 @@ def add_scorecard(request):
 
 
 def view_scorecard(request):
-    scorecard_info = YahtzeeScorecard.objects.all()
-    player = Player.objects.all()
-    return render(request, 'view_scorecard.html', {'scorecard_info': scorecard_info})
+    # scorecard_info = YahtzeeScorecard.objects.values('username__username').annotate(average_grand_total=Func(Avg('grand_total'), function='CEIL')).order_by('-average_grand_total')
+    return render(request, 'view_scorecard.html')
 
 
 def top_10_scorecards(request):
     scorecard_info = YahtzeeScorecard.objects.order_by('-grand_total')[:10]
     player = Player.objects.all()
     return render(request, 'top_10_scorecards.html', {'scorecard_info': scorecard_info})
+
+
+def top_10_lowest(request):
+    scorecard_info = YahtzeeScorecard.objects.order_by('grand_total')[:10]
+    player = Player.objects.all()
+    return render(request, 'top_10_lowest.html', {'scorecard_info': scorecard_info})
+
+
+def avg_grand_total(request):
+    scorecard_info = YahtzeeScorecard.objects.values('username__username').annotate(average_grand_total=Func(Avg('grand_total'), function='CEIL')).order_by('-average_grand_total')
+    return render(request, 'avg_grand_total.html', {'scorecard_info': scorecard_info})
+
+
+def all_scorecards(request):
+    scorecard_info = YahtzeeScorecard.objects.all().order_by('-scorecard_id')
+    player = Player.objects.all()
+    return render(request, 'all_scorecards.html', {'scorecard_info': scorecard_info})
 
 
 def detail_scorecard(request, pk):

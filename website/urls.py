@@ -13,4 +13,7 @@ urlpatterns = [
     path('delete_scorecard/<int:pk>', views.delete_scorecard, name='delete_scorecard'),
     path('update_scorecard/<int:pk>', views.update_scorecard, name='update_scorecard'),
     path('top_10_scorecards/', views.top_10_scorecards, name='top_10_scorecards'),
+    path('top_10_lowest/', views.top_10_lowest, name='top_10_lowest'),
+    path('all_scorecards/', views.all_scorecards, name='all_scorecards'),
+    path('avg_grand_total/', views.avg_grand_total, name='avg_grand_total'),
 ]
